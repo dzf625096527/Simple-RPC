@@ -266,11 +266,11 @@ bootstrap.group(eventLoopGroup).channel(NioSocketChannel.class)
 
 ## 环境搭建
 
-- 操作系统：Windows
-- 集成开发工具：IntelliJ IDEA
+- 操作系统：Windows/MAC OS
+- 集成开发工具：IntelliJ IDEA + Docker
 - 项目技术栈：SpringBoot 2.5.2 + JDK 1.8 + Netty 4.1.42.Final
 - 项目依赖管理工具：Maven 4.0.0
-- 注册中心：Zookeeeper 3.7.0
+- 注册中心：Zookeeeper 3.7.0(在docker中安装启动即可)
 
 ## 项目测试
 
