@@ -3,10 +3,7 @@ package com.rrtv.rpc.core.discovery;
 import com.rrtv.rpc.core.common.ServiceInfo;
 
 /**
- * @Classname DiscoveryService
- * @Description
- * @Date 2021/7/23 18:28
- * @Created by wangchangjiu
+ * 服务发现
  */
 public interface DiscoveryService {
 

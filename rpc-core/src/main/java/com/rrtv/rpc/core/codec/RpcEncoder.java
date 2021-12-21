@@ -11,12 +11,11 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  *  编码器
- *
- * @Author: changjiu.wang
- * @Date: 2021/7/24 22:27
+ * @author dengzhifu
  */
 @Slf4j
 public class RpcEncoder<T> extends MessageToByteEncoder<MessageProtocol<T>> {
@@ -56,7 +55,7 @@ public class RpcEncoder<T> extends MessageToByteEncoder<MessageProtocol<T>> {
         byteBuf.writeByte(header.getStatus());
 
         // 消息 ID
-        byteBuf.writeCharSequence(header.getRequestId(), Charset.forName("UTF-8"));
+        byteBuf.writeCharSequence(header.getRequestId(), StandardCharsets.UTF_8);
 
         RpcSerialization rpcSerialization = SerializationFactory.getRpcSerialization(SerializationTypeEnum.parseByType(header.getSerialization()));
         byte[] data = rpcSerialization.serialize(messageProtocol.getBody());

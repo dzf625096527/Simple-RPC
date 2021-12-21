@@ -15,12 +15,12 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
  *  解码器
- * @Author: changjiu.wang
- * @Date: 2021/7/24 22:28
+ * @author dengzhifu
  */
 @Slf4j
 public class RpcDecoder extends ByteToMessageDecoder {
@@ -61,7 +61,7 @@ public class RpcDecoder extends ByteToMessageDecoder {
         byte serializeType = in.readByte();
         byte msgType = in.readByte();
         byte status = in.readByte();
-        CharSequence requestId = in.readCharSequence(ProtocolConstants.REQ_LEN, Charset.forName("UTF-8"));
+        CharSequence requestId = in.readCharSequence(ProtocolConstants.REQ_LEN, StandardCharsets.UTF_8);
 
         int dataLength = in.readInt();
         if (in.readableBytes() < dataLength) {
@@ -105,6 +105,8 @@ public class RpcDecoder extends ByteToMessageDecoder {
                     protocol.setBody(response);
                     out.add(protocol);
                 }
+                break;
+            default:
                 break;
         }
 

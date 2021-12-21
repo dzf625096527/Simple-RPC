@@ -19,11 +19,9 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+
 /**
- * @Classname ZookeeperRegistryService
- * @Description
- * @Date 2021/7/23 14:35
- * @Created by wangchangjiu
+ * @author dengzhifu
  */
 @Slf4j
 public class ZookeeperDiscoveryService implements DiscoveryService {
@@ -33,9 +31,15 @@ public class ZookeeperDiscoveryService implements DiscoveryService {
     public static final String ZK_BASE_PATH = "/demo_rpc";
 
     private ServiceDiscovery<ServiceInfo> serviceDiscovery;
+    /**
+     * 负载均衡
+     */
+    private final LoadBalance loadBalance;
 
-    private LoadBalance loadBalance;
-
+    /**
+     * @param registryAddr 服务注册地址
+     * @param loadBalance 负载均衡
+     */
     public ZookeeperDiscoveryService(String registryAddr, LoadBalance loadBalance) {
         this.loadBalance = loadBalance;
         try {
@@ -49,7 +53,7 @@ public class ZookeeperDiscoveryService implements DiscoveryService {
                     .build();
             this.serviceDiscovery.start();
         } catch (Exception e) {
-            log.error("serviceDiscovery start error :{}", e);
+            log.error("serviceDiscovery start error :{}", e.getMessage());
         }
     }
 

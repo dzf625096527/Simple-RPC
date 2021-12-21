@@ -19,6 +19,7 @@ public class FirstLoadBalance implements LoadBalance {
 
     @Override
     public ServiceInfo chooseOne(List<ServiceInfo> services) {
+        System.out.println(services);
         log.info("---------FirstLoadBalance-----------------");
         return services.get(0);
     }

@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * @author dengzhifu
+ */
 @Data
 public class ServiceInfo implements Serializable {
 

@@ -18,10 +18,10 @@ import javax.annotation.PreDestroy;
 import java.net.InetAddress;
 
 /**
+ * @author dengzhifu
  * @Classname RpcServerProvider
  * @Description
  * @Date 2021/7/5 11:38
- * @Created by wangchangjiu
  */
 @Slf4j
 public class RpcServerProvider implements BeanPostProcessor, CommandLineRunner {
@@ -86,7 +86,7 @@ public class RpcServerProvider implements BeanPostProcessor, CommandLineRunner {
         log.info(" rpc server :{} start, appName :{} , port :{}", rpcServer, properties.getAppName(), properties.getPort());
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-                // 关闭之后把服务从ZK上清楚
+                // 关闭之后把服务从ZK上清除
                 registryService.destroy();
             }catch (Exception ex){
                 log.error("", ex);

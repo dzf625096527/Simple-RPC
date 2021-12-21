@@ -20,7 +20,6 @@ import org.springframework.util.ReflectionUtils;
  * 判断bean字段是否被 {@link com.rrtv.rpc.client.annotation.RpcAutowired } 注解修饰
  * 动态修改被修饰字段的值为代理对象 {@link ClientStubProxyFactory}
  * @Date 2021/7/5 16:06
- * @Created by wangchangjiu
  */
 public class RpcClientProcessor implements BeanFactoryPostProcessor, ApplicationContextAware {
 
